@@ -4,7 +4,7 @@ NAME := megaphone
 
 GCC := clang++
 
-FLAGS := -std=c++98  -Wall -Wextra -Werror -g
+FLAGS := -std=c++98 -Wall -Wextra -Werror -g
 
 SRC :=				megaphone.cpp
 
@@ -34,7 +34,7 @@ $(OBJ_DIR)/%.o : %.cpp
 	$(VERB) echo $(CYAN)"Object files [OK]"
 
 $(NAME) : $(OBJ)
-	$(VERB) $(GCC) $(FLAGS) $< -o $@
+	$(VERB) $(GCC) $(FLAGS) $^ -o $@
 	$(VERB) echo $(GREEN)"$(NAME) Compiled [OK]"
 
 clean : 
