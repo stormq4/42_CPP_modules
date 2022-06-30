@@ -4,52 +4,36 @@ NAME := phonebook
 
 GCC := clang++
 
-FLAGS := -std=c++98 -Wall -Wextra -Werror -g
+FLAGS := -std=c++98 -Wall -Wextra -Werror -g -pedantic
 
 SRC :=				Contact.cpp \
-					Phonebook.cpp
+					PhoneBook.cpp \
+					main.cpp
 
-INC :=				Contact.hpp
+INC :=				Contact.hpp \
+					PhoneBook.hpp
 
 OBJ_DIR	:=			obj
 OBJ :=				$(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 
-ifndef verbose
-VERB := @
-else
-VERB := 
-endif
-
-## Colors
-GREEN := 				"\033[1;32m"
-CYAN := 				"\033[1;36m"
-RED := 					"\033[1;31m"
-PURPLE := 				"\033[1;35m"
 
 all : $(NAME)
 
-verbose : fclean
-	$(VERB) $(MAKE) verbose=1
-
-echo :
-	@echo object $(OBJ)
-
 $(OBJ_DIR)/%.o : %.cpp
-	$(VERB) mkdir -p $(dir $@)
-	$(VERB) $(GCC) $(FLAGS) -c $< -o $@
-	$(VERB) echo $(CYAN)"Object files [OK]"
+	@mkdir -p $(dir $@)
+	$(GCC) $(FLAGS) -c $< -o $@
+
 
 $(NAME) : $(OBJ)
-	$(VERB) $(GCC) $(FLAGS) $^ -o $@
-	$(VERB) echo $(GREEN)"$(NAME) Compiled [OK]"
+	$(GCC) $(FLAGS) $^ -o $@
+
 
 clean : 
-	$(VERB) rm -rf $(OBJ_DIR)
-	$(VERB) echo $(RED)"Object Files Removied [OK]"
+	rm -rf $(OBJ_DIR)
+
 
 fclean : clean
-	$(VERB) rm -rf $(NAME)
-	$(VERB) echo $(RED)"$(NAME) Removed [OK]"
+	rm -rf $(NAME)
 
 re : fclean all
 
