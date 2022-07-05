@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/06/30 16:55:56 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/07/01 12:30:46 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/07/05 10:42:04 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <string>
 #include <iostream>
 #include <stdlib.h>
+#include <ctime>
 #include "Account.hpp"
 
 int Account::_totalAmount = 0;
@@ -23,7 +24,8 @@ int Account::_nbAccounts = 0;
 
 void	Account::_displayTimestamp( void ) 
 {
-	std::cout << "[19920104_091532] ";
+	std::time_t ms = std::time(nullptr);
+	std::cout << "[" << ms << "] ";
 }
 
 void	Account::displayStatus(void) const
@@ -46,7 +48,7 @@ void	Account::makeDeposit( int deposit )
 	std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";deposit:" << deposit;
 	_amount += deposit;
 	_nbDeposits++;
-	std::cout << ";amount:" << _amount << ";nb_deposit:" << _nbDeposits << std::endl;
+	std::cout << ";amount:" << _amount << ";nb_deposits:" << _nbDeposits << std::endl;
 	_totalAmount += deposit;
 	_totalNbDeposits++;
 }
@@ -56,7 +58,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 	_displayTimestamp();
 	if (withdrawal > _amount)
 	{
-		std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";withdrawal: refused" << std::endl;
+		std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";withdrawal:refused" << std::endl;
 		return (false);
 	}
 	std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";withdrawal:" << withdrawal;
@@ -90,11 +92,3 @@ Account::~Account( void )
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
 }
-
-// Account::Account( void )
-// {
-// 	// _totalAmount = 0;
-// 	// _totalNbDeposits = 0;
-// 	// _totalNbWithdrawals = 0;
-// 	// _nbAccounts = 0;
-// }

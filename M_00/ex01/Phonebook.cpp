@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Phonebook.cpp                                      :+:    :+:            */
+/*   PhoneBook.cpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/04/21 10:31:58 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/06/30 11:28:39 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/06/30 16:53:27 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	PhoneBook::PhonePromptSearchValue(void)
 				break ;
 		}
 	}
-	_contacts[index % 8 - 1].PrintContactData();
+	_contacts[index - 1].PrintContactData();
 }
 
 void	PhoneBook::SearchContacts(void)
