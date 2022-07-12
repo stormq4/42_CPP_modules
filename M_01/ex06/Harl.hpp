@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Sed.hpp                                            :+:    :+:            */
+/*   Harl.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/11 15:32:42 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/07/12 08:58:42 by sde-quai      ########   odam.nl         */
+/*   Created: 2022/07/12 09:38:01 by sde-quai      #+#    #+#                 */
+/*   Updated: 2022/07/12 10:50:43 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_HPP
-# define SED_HPP
+#ifndef HARL_HPP
+# define HARL_HPP
 
 #include <iostream>
-#include <stdlib.h>
 #include <string>
-#include <fstream>
+#include <stdlib.h>
 
-class Sed {
-	
-	public:
-		Sed(std::string fName, std::string s1, std::string s2);
-		~Sed( void );
-		void	readFile( void );
-
-	private:
-		std::string	filename;
-		std::string	s1;
-		std::string	s2;
-
-};
+class Harl {
+	public :
+		Harl( void );
+		~Harl( void );
+		void complain( std::string level );
+		
+	private :
+		void	debug( void );
+		void	info( void );
+		void	warning( void );
+		void	error( void );
+} ;
 
 #endif

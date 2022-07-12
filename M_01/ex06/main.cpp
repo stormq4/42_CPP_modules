@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Sed.hpp                                            :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/07/11 15:32:42 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/07/12 08:58:42 by sde-quai      ########   odam.nl         */
+/*   Created: 2022/07/12 11:02:26 by sde-quai      #+#    #+#                 */
+/*   Updated: 2022/07/12 11:20:12 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_HPP
-# define SED_HPP
+#include "Harl.hpp"
 
-#include <iostream>
-#include <stdlib.h>
-#include <string>
-#include <fstream>
+int main(int argc, char **argv)
+{
+	Harl Karen;
 
-class Sed {
-	
-	public:
-		Sed(std::string fName, std::string s1, std::string s2);
-		~Sed( void );
-		void	readFile( void );
-
-	private:
-		std::string	filename;
-		std::string	s1;
-		std::string	s2;
-
-};
-
-#endif
+	if (argc == 1)
+		return(1);
+	Karen.complain((std::string)argv[1]);
+	return(0);
+}

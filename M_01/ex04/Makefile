@@ -6,7 +6,7 @@
 #    By: sde-quai <sde-quai@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/06/30 13:28:51 by sde-quai      #+#    #+#                  #
-#    Updated: 2022/07/11 17:38:29 by sde-quai      ########   odam.nl          #
+#    Updated: 2022/07/12 09:38:11 by sde-quai      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,4 +45,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY : clean, fclean, all, re, verbose
+.PHONY : clean, fclean, all, re

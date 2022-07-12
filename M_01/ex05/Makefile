@@ -6,22 +6,20 @@
 #    By: sde-quai <sde-quai@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/06/30 13:28:51 by sde-quai      #+#    #+#                  #
-#    Updated: 2022/07/12 09:38:32 by sde-quai      ########   odam.nl          #
+#    Updated: 2022/07/12 11:04:11 by sde-quai      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := zombie 
+NAME := harl
 
 GCC := clang++
 
 FLAGS := -std=c++98 -Wall -Wextra -Werror -g -pedantic
 
-SRC :=				newZombie.cpp \
-					randomChump.cpp \
-					Zombie.cpp \
-					main.cpp
+SRC :=				main.cpp \
+					Harl.cpp 
 
-INC :=				Zombie.hpp 
+INC :=				Harl.hpp
 
 OBJ_DIR	:=			obj
 OBJ :=				$(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
