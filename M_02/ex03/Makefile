@@ -6,20 +6,22 @@
 #    By: sde-quai <sde-quai@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/06/30 13:28:51 by sde-quai      #+#    #+#                  #
-#    Updated: 2022/07/12 14:48:49 by sde-quai      ########   odam.nl          #
+#    Updated: 2022/07/14 11:40:41 by sde-quai      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME := fixed
+NAME := bsp
 
 GCC := clang++
 
 FLAGS := -std=c++98 -Wall -Wextra -Werror -g -pedantic
 
 SRC :=				main.cpp \
-					Fixed.cpp 
+					Fixed.cpp \
+					Point.cpp
 
-INC :=				Fixed.hpp
+INC :=				Fixed.hpp \
+					Point.hpp
 
 OBJ_DIR	:=			obj
 OBJ :=				$(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))

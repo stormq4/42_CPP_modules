@@ -6,30 +6,22 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/12 14:20:27 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/07/13 17:55:06 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/07/14 12:31:46 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include <iostream>
+#include "Point.hpp"
 
 int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-	std::cout << Fixed( 5.05f ) * Fixed( 2 ) << std::endl;
-
-	Fixed hai( 117.002f );
-	Fixed bai( 5 );
-	std::cout << hai / bai << std::endl;
-	std::cout << hai - bai << std::endl;
-	std::cout <<hai + bai << std::endl;
+	Point A(10, 5), B(10, 10), C(5, 10), point(2, 1), newPoint(8, 8), newerPoint(90, 3.04f), nPoint(10, 10);
 	
+	bool check = bsp(A, B, C, point);
+	std::cout << check << " point should be false" << std::endl;
+	// check = bsp(A, B, C, newPoint);
+	// std::cout << check << " point should be true" << std::endl;
+	// check = bsp(A, B, C, newerPoint);
+	// std::cout << check << " point should be false" << std::endl;
+	// check = bsp(A, B, C, nPoint);
+	// std::cout << check << " point should be false" << std::endl;
 	return 0;
 }

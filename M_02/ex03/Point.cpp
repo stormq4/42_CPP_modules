@@ -6,29 +6,44 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/13 18:15:07 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/07/13 18:41:13 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/07/14 12:32:05 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-Point::Point( void ):x(0), y(0){return ;}
+Point::Point( void ):x(0), y(0){}
 
-// std::ostream & operator<<(std::ostream &os, Point const &point){
-// 	os << point.x;
-// 	return (os);
-// }
+Point::~Point( void ){}
 
-Point::~Point( void ) {return;}
+Point::Point( Fixed xNew, Fixed yNew):x(xNew), y(yNew) {}
 
-Point::Point( Fixed xNew, Fixed yNew):x(xNew), y(yNew) {return;}
-
-Point::Point( const Point &origin ) {
-	*this = origin;
-}
+Point::Point( const Point &origin ):x(origin.x), y(origin.y) {}
 
 Point	&Point::operator=( const Point &duplicate ) {
-	y = duplicate.y;
+	(void)duplicate;
 	return *this;
 }
-// https://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle
+
+Fixed	Point::xReturn( void ) const { return (x);}
+Fixed	Point::yReturn( void ) const { return (y);}
+
+float	assignPosition(const Point p, const Point sideOne, const Point sideTwo){
+	Fixed nr((p.xReturn() - sideTwo.xReturn()) * (sideOne.yReturn() - sideTwo.yReturn()) \
+	- (sideOne.xReturn() - sideTwo.xReturn()) * (p.yReturn() - sideTwo.yReturn()));
+	return (nr.toFloat());
+}
+
+bool bsp( Point const a, Point const b, Point const c, Point const point) {
+	float	dp1, dp2, dp3;
+	bool	neg, pos;
+
+	dp1 = assignPosition(point, a, b);
+	dp2 = assignPosition(point, b, c);
+	dp3 = assignPosition(point, c, a);
+
+	neg = (dp1 <= 0) || (dp2 <= 0) || (dp3 <= 0);
+	pos = (dp1 >= 0) || (dp2 >= 0) || (dp3 >= 0);
+
+	return !(neg && pos);
+}
