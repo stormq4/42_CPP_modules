@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/14 15:35:35 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/02 12:05:53 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/02 12:03:32 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ class ClapTrap{
 		void	takeDamage( unsigned int amount );
 		void	beRepaired( unsigned int amount );
 
-	private:
+	protected:
 		std::string	_name;
 		int			_hitPoints;
 		int			_energyPoints;
 		int			_attackDamage;
 		
+		ClapTrap( const std::string name, int hitPoints, int energyPoints, int attackDamage );
 };
 
 #endif

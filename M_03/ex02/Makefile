@@ -6,11 +6,11 @@
 #    By: sde-quai <sde-quai@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/01 11:46:12 by sde-quai      #+#    #+#                  #
-#    Updated: 2022/08/02 11:37:16 by sde-quai      ########   odam.nl          #
+#    Updated: 2022/08/02 11:58:53 by sde-quai      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME :=				ScavTrap
+NAME :=				FragTrap
 
 GCC :=				clang++
 
@@ -18,6 +18,7 @@ FLAGS :=			-std=c++98 -Wall -Wextra -Werror -g -pedantic
 
 SRC := 				ClapTrap.cpp \
 					ScavTrap.cpp \
+					FragTrap.cpp \
 					main.cpp
 
 OBJ_DIR := 			obj

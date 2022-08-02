@@ -6,10 +6,12 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/07/14 15:35:35 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/02 09:51:56 by stormdequay   ########   odam.nl         */
+/*   Updated: 2022/08/02 12:05:35 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 #include <iostream>
 #include <stdlib.h>
 #include <string>
@@ -35,3 +37,5 @@ class ClapTrap{
 		
 		ClapTrap( const std::string name, int hitPoints, int energyPoints, int attackDamage );
 };
+
+#endif
