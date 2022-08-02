@@ -6,7 +6,7 @@
 /*   By: stormdequay <stormdequay@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/02 09:32:22 by stormdequay   #+#    #+#                 */
-/*   Updated: 2022/08/02 13:31:54 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/02 13:32:26 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,3 @@ void	ScavTrap::attack( const std::string &target ) {
 		std::cout << "ScavTrap "<< _name << " is dead " << std::endl;
 	}
 }
-

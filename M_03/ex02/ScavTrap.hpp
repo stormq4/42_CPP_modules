@@ -6,7 +6,7 @@
 /*   By: stormdequay <stormdequay@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/02 09:28:54 by stormdequay   #+#    #+#                 */
-/*   Updated: 2022/08/02 12:02:51 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/02 13:32:05 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ class ScavTrap : public ClapTrap {
 	
 		ScavTrap( const std::string name );
 		void	guardGate( void );
+		void	attack( const std::string &target );
+
 	
 };
 

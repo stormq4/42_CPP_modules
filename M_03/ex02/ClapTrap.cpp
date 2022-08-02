@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/01 11:28:37 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/02 11:45:49 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/02 13:33:22 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,17 @@ ClapTrap &ClapTrap::operator=( const ClapTrap &dup ) {
 
 void	ClapTrap::attack( const std::string &target ) {
 	if (_energyPoints > 0 && _hitPoints > 0) {
-		std::cout << _name << " attacks " << target << " causing, " << _attackDamage << " points of damage!" << std::endl; 
+		std::cout << "ClapTrap " << _name << " attacks " << target << " causing, " << _attackDamage << " points of damage!" << std::endl; 
 		_energyPoints--;
 	}
 	else if (_energyPoints <= 0){
-		std::cout << _name << " has no energy so he cannot attack" << std::endl;
+		std::cout << "ClapTrap "<< _name << " has no energy " << std::endl;
 	}
 	else if (_hitPoints) {
-		std::cout << _name << " is dead so he cannot attack" << std::endl;
+		std::cout << "ClapTrap "<< _name << " is dead " << std::endl;
 	}
 }
+
 
 void	ClapTrap::takeDamage( unsigned int amount ) {
 	_hitPoints -= amount;

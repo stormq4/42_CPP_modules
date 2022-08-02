@@ -6,15 +6,15 @@
 /*   By: stormdequay <stormdequay@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/02 09:28:54 by stormdequay   #+#    #+#                 */
-/*   Updated: 2022/08/02 13:29:16 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/02 14:40:52 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef SCAVTRAPP_HPP
+# define SCAVTRAPP_HPP
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
+class ScavTrap : virtual public ClapTrap {
 	
 	public:
 		ScavTrap( void );

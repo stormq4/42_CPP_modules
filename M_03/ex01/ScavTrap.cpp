@@ -6,7 +6,7 @@
 /*   By: stormdequay <stormdequay@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/02 09:32:22 by stormdequay   #+#    #+#                 */
-/*   Updated: 2022/08/02 11:43:13 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/02 13:30:59 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,17 @@ ScavTrap	&ScavTrap::operator=( const ScavTrap &dup ) {
 // Functions
 void	ScavTrap::guardGate( void ) {
 	std::cout << this->_name << " is now in Gate keeping mode" << std::endl;
+}
+
+void	ScavTrap::attack( const std::string &target ) {
+	if (_energyPoints > 0 && _hitPoints > 0) {
+		std::cout << "ScavTrap " << _name << " attacks " << target << " causing, " << _attackDamage << " points of damage!" << std::endl; 
+		_energyPoints--;
+	}
+	else if (_energyPoints <= 0){
+		std::cout << "ScavTrap "<< _name << " has no energy " << std::endl;
+	}
+	else if (_hitPoints) {
+		std::cout << "ScavTrap "<< _name << " is dead " << std::endl;
+	}
 }
