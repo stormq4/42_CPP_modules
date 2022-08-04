@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/02 17:15:45 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/04 16:46:27 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/04 17:00:45 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog: public Animal {
 		public:
@@ -24,6 +25,9 @@ class Dog: public Animal {
 			Dog	&operator=( const Dog &dup );
 			
 			void makeSound(void) const;
+		
+		private:
+			Brain	*_brain;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/02 17:19:52 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/04 14:43:59 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/04 17:04:05 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 Cat::Cat( void )
 : Animal("Cat") {
+	this->_brain = new Brain();
 	std::cout << "Cat default constructor called" << std::endl;
 }
 
 Cat::~Cat( void ) {
+	delete this->_brain;
 	std::cout << "Cat default destructor called" << std::endl;
 }
 

@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.cpp                                         :+:    :+:            */
+/*   WrongAnimal.cpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/02 16:48:13 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/04 14:40:44 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/04 14:17:31 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal( void )
+WrongAnimal::WrongAnimal( void )
 : _type("") {
-	std::cout << "Animal default constructor called" << std::endl;
+	std::cout << "WrongAnimal default constructor called" << std::endl;
 }
 
-Animal::~Animal( void ) {
-	std::cout << "Animal default destructor called" << std::endl;
+WrongAnimal::~WrongAnimal( void ) {
+	std::cout << "WrongAnimal default destructor called" << std::endl;
 }
 
-Animal::Animal( const Animal &origin ) {
+WrongAnimal::WrongAnimal( const WrongAnimal &origin ) {
 	*this = origin;
 }
 
-Animal::Animal( const std::string type )
+WrongAnimal::WrongAnimal( const std::string type )
 : _type(type) {
-	std::cout << "Animal type constructor called" << std::endl;
+	std::cout << "WrongAnimal type constructor called" << std::endl;
 }
 
-Animal	&Animal::operator=( const Animal &dup ){
+WrongAnimal	&WrongAnimal::operator=( const WrongAnimal &dup ){
 	this->_type = dup._type;
 	return (*this);
 }
 
-std::string	Animal::getType( void ) const { return (_type); }
+std::string	WrongAnimal::getType( void ) const { return (_type); }
 
-void Animal::makeSound( void ) const {}
+void	WrongAnimal::makeSound( void ) const { std::cout << "\"just nothing - wrong animal\"" << std::endl; }

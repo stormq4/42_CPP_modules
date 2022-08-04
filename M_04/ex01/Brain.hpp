@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Dog.hpp                                            :+:    :+:            */
+/*   Brain.hpp                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/02 17:15:45 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/04 16:46:27 by sde-quai      ########   odam.nl         */
+/*   Created: 2022/08/04 17:15:40 by sde-quai      #+#    #+#                 */
+/*   Updated: 2022/08/04 17:16:27 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-#include "Animal.hpp"
+#include <stdlib.h>
+#include <iostream>
+#include <string>
 
-class Dog: public Animal {
-		public:
-			Dog( void );
-			~Dog( void );
-			Dog( const Dog &origin );
-			
-			Dog	&operator=( const Dog &dup );
-			
-			void makeSound(void) const;
+class	Brain
+{
+	public:
+		Brain();
+		Brain(const Brain& ref);
+		Brain& operator=(const Brain& ref);
+		~Brain();
+	
+	private:
+		std::string	_ideas[100];
 };
 
 #endif

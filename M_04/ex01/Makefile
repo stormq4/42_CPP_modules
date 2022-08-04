@@ -6,27 +6,41 @@
 #    By: sde-quai <sde-quai@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/01 11:46:12 by sde-quai      #+#    #+#                  #
-#    Updated: 2022/08/04 14:05:05 by sde-quai      ########   odam.nl          #
+#    Updated: 2022/08/04 17:25:25 by sde-quai      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME :=				Polymorphism
+NAME :=				Brain
+
+ifdef sanitize
+FLAGS := -std=c++98 -Wall -Wextra -Werror -pedantic -g -fsanitize=address
+else
+FLAGS :=			-std=c++98 -Wall -Wextra -Werror -g -pedantic
+endif
+
 
 GCC :=				clang++
 
-FLAGS :=			-std=c++98 -Wall -Wextra -Werror -g -pedantic
 
 SRC := 				Animal.cpp \
 					Cat.cpp \
 					Dog.cpp \
 					WrongAnimal.cpp \
 					WrongCat.cpp \
+					Brain.cpp \
 					main.cpp
 
 OBJ_DIR := 			obj
 OBJ :=				$(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 
 all: $(NAME)
+
+fclean : clean
+	rm -rf $(NAME)
+
+
+sanitize: fclean
+	$(MAKE)	
 
 $(OBJ_DIR)/%.o : %.cpp
 	@mkdir -p $(dir $@)
@@ -39,8 +53,6 @@ clean :
 	rm -rf $(OBJ_DIR)
 
 
-fclean : clean
-	rm -rf $(NAME)
 
 re : fclean all
 

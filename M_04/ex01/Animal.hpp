@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Dog.hpp                                            :+:    :+:            */
+/*   Animal.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/02 17:15:45 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/04 16:46:27 by sde-quai      ########   odam.nl         */
+/*   Created: 2022/08/02 16:41:15 by sde-quai      #+#    #+#                 */
+/*   Updated: 2022/08/04 17:19:34 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-#include "Animal.hpp"
+#include <iostream>
+#include <string>
+#include <stdlib.h>
 
-class Dog: public Animal {
-		public:
-			Dog( void );
-			~Dog( void );
-			Dog( const Dog &origin );
-			
-			Dog	&operator=( const Dog &dup );
-			
-			void makeSound(void) const;
+class Animal {
+	
+	public:
+		Animal( void );
+		virtual ~Animal( void );
+		Animal( const Animal &origin);
+		Animal( const std::string type );
+		
+		Animal			&operator=( const Animal &dup );
+		
+		virtual void		makeSound( void ) const;
+		std::string			getType( void ) const;
+	
+	protected:
+		std::string	_type;
+	
+	
 };
 
 #endif

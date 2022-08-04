@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Dog.hpp                                            :+:    :+:            */
+/*   Cat.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/02 17:15:45 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/04 16:46:27 by sde-quai      ########   odam.nl         */
+/*   Created: 2022/08/02 16:54:14 by sde-quai      #+#    #+#                 */
+/*   Updated: 2022/08/04 16:53:38 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-class Dog: public Animal {
+class Cat: public Animal {
 		public:
-			Dog( void );
-			~Dog( void );
-			Dog( const Dog &origin );
+			Cat( void );
+			~Cat( void );
+			Cat( const Cat &origin);
 			
-			Dog	&operator=( const Dog &dup );
-			
-			void makeSound(void) const;
+			Cat	&operator=( const Cat &dup );
+
+			virtual void	makeSound( void ) const;
+
+		private:
+			Brain	*_brain;
+
 };
 
 #endif
