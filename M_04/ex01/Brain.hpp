@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/04 17:15:40 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/04 17:16:27 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/05 15:54:19 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ class	Brain
 		Brain(const Brain& ref);
 		Brain& operator=(const Brain& ref);
 		~Brain();
-	
-	private:
 		std::string	_ideas[100];
+
 };
 
 #endif

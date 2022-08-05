@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/02 16:54:14 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/04 16:53:38 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/05 16:12:15 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class Cat: public Animal {
 			
 			Cat	&operator=( const Cat &dup );
 
-			virtual void	makeSound( void ) const;
+			void	makeSound( void ) const;
+			Brain	*getBrain() const;
 
 		private:
 			Brain	*_brain;

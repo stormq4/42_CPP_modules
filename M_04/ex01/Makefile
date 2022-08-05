@@ -6,14 +6,14 @@
 #    By: sde-quai <sde-quai@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/01 11:46:12 by sde-quai      #+#    #+#                  #
-#    Updated: 2022/08/04 17:25:25 by sde-quai      ########   odam.nl          #
+#    Updated: 2022/08/05 14:24:28 by sde-quai      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME :=				Brain
 
 ifdef sanitize
-FLAGS := -std=c++98 -Wall -Wextra -Werror -pedantic -g -fsanitize=address
+FLAGS := 			-std=c++98 -Wall -Wextra -g -fsanitize=address
 else
 FLAGS :=			-std=c++98 -Wall -Wextra -Werror -g -pedantic
 endif
@@ -40,7 +40,7 @@ fclean : clean
 
 
 sanitize: fclean
-	$(MAKE)	
+	$(MAKE)	sanitize=1
 
 $(OBJ_DIR)/%.o : %.cpp
 	@mkdir -p $(dir $@)

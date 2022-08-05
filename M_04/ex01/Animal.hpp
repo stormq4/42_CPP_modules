@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/02 16:41:15 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/04 17:19:34 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/05 15:57:45 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
+#include "Brain.hpp"
 
 class Animal {
 	
@@ -25,11 +26,12 @@ class Animal {
 		Animal( const Animal &origin);
 		Animal( const std::string type );
 		
-		Animal			&operator=( const Animal &dup );
+		virtual Animal			&operator=( const Animal &dup );
 		
 		virtual void		makeSound( void ) const;
 		std::string			getType( void ) const;
-	
+		virtual Brain		*getBrain() const = 0;
+		
 	protected:
 		std::string	_type;
 	

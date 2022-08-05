@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/04 11:50:15 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/04 15:33:00 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/05 11:47:36 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int main()
 
 	const WrongAnimal* iW = new WrongCat();
 	iW->makeSound();
-
+	
 	return 0;
 }

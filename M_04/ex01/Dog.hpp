@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/02 17:15:45 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/04 17:00:45 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/05 16:11:37 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class Dog: public Animal {
 			
 			Dog	&operator=( const Dog &dup );
 			
-			void makeSound(void) const;
+			void	makeSound(void) const;
+			Brain	*getBrain() const;
 		
 		private:
 			Brain	*_brain;

@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/02 17:24:23 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/04 17:03:55 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/05 15:41:34 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,10 @@ Dog::Dog( const Dog &origin ) {
 Dog	&Dog::operator=( const Dog &dup ){
 	std::cout << "Dog copy assignment" << std::endl;
 	this->_type = dup._type;
-	this->_brain = dup._brain;
+	this->_brain = new Brain(*dup._brain);
 	return (*this);
 }
 
 void	Dog::makeSound( void ) const { std::cout << "Bark, Bark!!" << std::endl; }
+
+Brain	*Dog::getBrain() const {	return (this->_brain); }
