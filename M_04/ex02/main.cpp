@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/04 11:50:15 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/16 13:40:57 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/16 13:41:12 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int main()
 	// const Animal* i = new Cat();
 	// delete j;//should not create a leak
 	// delete i
-	
 	
 	const Cat* i = new Cat();
 	Animal* j = new Dog();
@@ -67,6 +66,8 @@ int main()
 	for (int i = 0; i < 10; i++) {
 		delete zoo[i];
 	}
+	// std::cout << "halllooooo test "  << std::endl;
+	// Animal test;
 	// system("leaks Brain");
 	return (0);
 }
