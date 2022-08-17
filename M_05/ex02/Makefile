@@ -6,11 +6,11 @@
 #    By: sde-quai <sde-quai@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/01 11:46:12 by sde-quai      #+#    #+#                  #
-#    Updated: 2022/08/17 11:26:01 by sde-quai      ########   odam.nl          #
+#    Updated: 2022/08/17 14:24:55 by sde-quai      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME :=				Bureaucrat
+NAME :=				Form
 
 ifdef sanitize
 FLAGS := 			-std=c++98 -Wall -Wextra -g -fsanitize=address
@@ -23,7 +23,11 @@ GCC :=				clang++
 
 
 SRC := 				main.cpp \
-					Bureaucrat.cpp
+					Bureaucrat.cpp \
+					Form.cpp \
+					PresidentialPardonForm.cpp \
+					RobotomyRequestForm.cpp \
+					ShrubberyCreationForm.cpp 
 
 OBJ_DIR := 			obj
 OBJ :=				$(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))

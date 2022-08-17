@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/02 16:41:15 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/05 15:57:45 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/17 11:47:32 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,17 @@ class Animal {
 	public:
 		Animal( void );
 		virtual ~Animal( void );
-		Animal( const Animal &origin);
+		Animal( const Animal &origin );
 		Animal( const std::string type );
 		
-		virtual Animal			&operator=( const Animal &dup );
+		virtual Animal		&operator=( const Animal &dup );
 		
-		virtual void		makeSound( void ) const;
+		virtual void		makeSound( void ) const = 0;
 		std::string			getType( void ) const;
 		virtual Brain		*getBrain() const = 0;
 		
 	protected:
 		std::string	_type;
-	
 	
 };
 

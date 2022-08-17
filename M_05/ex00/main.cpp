@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/16 16:01:52 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/16 17:18:28 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/17 10:42:21 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main()
 {
+	std::cout << "--GRADETOOLOWEXCEPTION---" << std::endl;
 	try
 	{
 		Bureaucrat Henkie("Henkie", 149);
@@ -31,6 +32,7 @@ int main()
 		// std::cerr << e.what() << '\n';
 	}
 	std::cout << "-------------------------" << std::endl;
+	std::cout << "--GRADETOOLOWEXCEPTION---" << std::endl;
 	try
 	{
 		Bureaucrat Henkie("Henkie", 149);
@@ -46,12 +48,13 @@ int main()
 		std::cerr << e.what() << '\n';
 	}
 	std::cout << "-------------------------" << std::endl;
+	std::cout << "-------OVERLOAD----------" << std::endl;
 	try
 	{
 		Bureaucrat Henkie;
 		std::cout << Henkie.getGrade() << std::endl;
-		Henkie.decrement();
-		Henkie.decrement();
+		Henkie.increment();
+		Henkie.increment();
 		std::cout << Henkie << std::endl;
 		std::cout << Henkie.getGrade() << std::endl;
 	}
@@ -60,7 +63,7 @@ int main()
 		
 	}
 	std::cout << "-------------------------" << std::endl;
-
+	std::cout << "--GRADETOOHIGHEXCEPTION--" << std::endl;
 	try
 	{
 		Bureaucrat Henkie("Ubercrat", 1);
