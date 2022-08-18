@@ -6,11 +6,11 @@
 #    By: sde-quai <sde-quai@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/01 11:46:12 by sde-quai      #+#    #+#                  #
-#    Updated: 2022/08/18 11:20:34 by sde-quai      ########   odam.nl          #
+#    Updated: 2022/08/18 11:20:17 by sde-quai      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME :=				Forms
+NAME :=				Intern
 
 ifdef sanitize
 FLAGS := 			-std=c++98 -Wall -Wextra -g -fsanitize=address
@@ -27,7 +27,8 @@ SRC := 				main.cpp \
 					Form.cpp \
 					PresidentialPardonForm.cpp \
 					RobotomyRequestForm.cpp \
-					ShrubberyCreationForm.cpp 
+					ShrubberyCreationForm.cpp \
+					Intern.cpp
 
 OBJ_DIR := 			obj
 OBJ :=				$(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))

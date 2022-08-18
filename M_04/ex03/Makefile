@@ -5,53 +5,46 @@
 #                                                      +:+                     #
 #    By: sde-quai <sde-quai@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2022/08/01 11:46:12 by sde-quai      #+#    #+#                  #
-#    Updated: 2022/08/18 11:20:34 by sde-quai      ########   odam.nl          #
+#    Created: 2022/06/30 13:28:51 by sde-quai      #+#    #+#                  #
+#    Updated: 2022/08/18 17:33:53 by sde-quai      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME :=				Forms
+NAME := interface
 
-ifdef sanitize
-FLAGS := 			-std=c++98 -Wall -Wextra -g -fsanitize=address
-else
-FLAGS :=			-std=c++98 -Wall -Wextra -Werror -g -pedantic
-endif
+GCC := clang++
+
+FLAGS := -std=c++98 -Wall -Wextra -Werror -g -pedantic  -fsanitize=address
+
+SRC :=				main.cpp \
+					AMateria.cpp \
+					MateriaSource.cpp \
+					Character.cpp \
+					Cure.cpp \
+					Ice.cpp
 
 
-GCC :=				clang++
-
-
-SRC := 				main.cpp \
-					Bureaucrat.cpp \
-					Form.cpp \
-					PresidentialPardonForm.cpp \
-					RobotomyRequestForm.cpp \
-					ShrubberyCreationForm.cpp 
-
-OBJ_DIR := 			obj
+OBJ_DIR	:=			obj
 OBJ :=				$(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
 
-all: $(NAME)
 
-fclean : clean
-	rm -rf $(NAME)
-
-
-sanitize: fclean
-	$(MAKE)	sanitize=1
+all : $(NAME)
 
 $(OBJ_DIR)/%.o : %.cpp
 	@mkdir -p $(dir $@)
 	$(GCC) $(FLAGS) -c $< -o $@
 
+
 $(NAME) : $(OBJ)
 	$(GCC) $(FLAGS) $^ -o $@
+
 
 clean : 
 	rm -rf $(OBJ_DIR)
 
 
+fclean : clean
+	rm -rf $(NAME)
 
 re : fclean all
 
