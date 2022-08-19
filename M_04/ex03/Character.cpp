@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 14:02:17 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/18 17:35:56 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/19 12:10:05 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ Character::Character(const Character& ref)
 		array[i] = ref.array[i];
 	}
 	_name = ref.getName();
+	oldArray = nullptr;
 }
 
 Character&	Character::operator=(const Character& ref)
@@ -50,11 +51,17 @@ Character&	Character::operator=(const Character& ref)
 
 Character::~Character()
 {
-	for (int i = 0; i < 4; i++ ){
-		delete array[i];
+	for (int i = 0; i < 4; i++) {
+		if (array[i])
+		{
+			delete array[i];
+			array[i] = nullptr;
+		}
 	}
-	for (int i = 0; i < _oldArraySize; i++){
-		delete oldArray[i];
+	for (int i = 0; i < _oldArraySize; i++) {
+		if (oldArray[i]) {
+			delete oldArray[i];
+		}
 	}
 	delete [] oldArray;
 }
@@ -76,11 +83,13 @@ void	Character::unequip( int idx ) {
 	}
 	else {
 		AMateria **tmpArray = new AMateria*[_oldArraySize + 1];
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < _oldArraySize; i++) {
 			tmpArray[i] = oldArray[i];
 		}
 		delete [] oldArray;
+		tmpArray[_oldArraySize] = array[idx];
 		oldArray = tmpArray;
+		_oldArraySize++;
 	}
 	array[idx] = NULL;
 }
