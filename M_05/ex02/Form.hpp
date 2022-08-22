@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/17 10:52:54 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/17 16:33:59 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/22 11:22:16 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class	Form
 		Form(const Form& ref);
 		virtual ~Form() = 0;
 		Form( const std::string name, const int signGrade, const int excuteGrade);
+		Form& operator=(const Form& ref);
 		
 		std::string getName() const;
 		bool		getIsSigned() const;
@@ -49,7 +50,6 @@ class	Form
 		const int			_signGrade;
 		const int			_executeGrade;
 		
-		Form& operator=(const Form& ref);
 
 };
 

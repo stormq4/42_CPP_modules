@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/17 10:52:54 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/17 16:33:59 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/22 11:31:46 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class	Form
 		bool		getIsSigned() const;
 		int			getSignedGrade() const;
 		int			getExecutionGrade() const;
+		Form& operator=(const Form& ref);
 		
 		void					beSigned( const Bureaucrat &ref );
 		virtual void			execute(Bureaucrat const & executor) const = 0;
@@ -49,7 +50,6 @@ class	Form
 		const int			_signGrade;
 		const int			_executeGrade;
 		
-		Form& operator=(const Form& ref);
 
 };
 
