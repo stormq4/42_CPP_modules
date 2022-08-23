@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Scalar.hpp                                         :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/22 12:00:07 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/23 10:11:16 by sde-quai      ########   odam.nl         */
+/*   Created: 2022/08/23 11:33:50 by sde-quai      #+#    #+#                 */
+/*   Updated: 2022/08/23 11:51:06 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALAR_HPP
-# define SCALAR_HPP
+#include "Data.hpp"
 
-#include <iostream>
-#include <string>
+int main() {
+	Data ptr;
+	std::cout << "ptr test --> uint && std::stirng --> ";
+	ptr.printData();
+	
+	uintptr_t hallo = serialize(&ptr);
+	std::cout << "test this --> " << hallo << std::endl;
+	
+	Data *new_ptr = deserialize(hallo);
+	std::cout << "new_ptr test --> uint && std::stirng --> ";
+	new_ptr->printData();
 
-class Scalar {
-	public:
-		Scalar();
-		~Scalar();
-		Scalar(const Scalar &ref);
-		Scalar &operator=(const Scalar &ref);
-		Scalar(std::string input);
-
-		void	convertLiterals();
-		void	displayLiterals( long double x );
-
-	private:
-		std::string	_input;
-};
-
-#endif
+	return 0;
+}

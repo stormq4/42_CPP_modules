@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Scalar.hpp                                         :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/22 12:00:07 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/23 10:11:16 by sde-quai      ########   odam.nl         */
+/*   Created: 2022/08/23 13:56:58 by sde-quai      #+#    #+#                 */
+/*   Updated: 2022/08/23 14:16:21 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALAR_HPP
-# define SCALAR_HPP
+#include "Base.hpp"
 
-#include <iostream>
-#include <string>
-
-class Scalar {
-	public:
-		Scalar();
-		~Scalar();
-		Scalar(const Scalar &ref);
-		Scalar &operator=(const Scalar &ref);
-		Scalar(std::string input);
-
-		void	convertLiterals();
-		void	displayLiterals( long double x );
-
-	private:
-		std::string	_input;
-};
-
-#endif
+int main() {
+	for (int i = 0; i < 10; i++){
+		std::cout << "----TEST " << i << "----" << std::endl;
+		Base * test = generate();
+		identify(test);
+		identify(*test);	
+		delete test;
+		std::cout << "\\n";
+	}
+}

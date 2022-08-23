@@ -1,34 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Scalar.hpp                                         :+:    :+:            */
+/*   Base.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/22 12:00:07 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/23 10:11:16 by sde-quai      ########   odam.nl         */
+/*   Created: 2022/08/23 13:17:53 by sde-quai      #+#    #+#                 */
+/*   Updated: 2022/08/23 14:09:58 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALAR_HPP
-# define SCALAR_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 
 #include <iostream>
 #include <string>
 
-class Scalar {
+class Base;
+
+class Base {
 	public:
-		Scalar();
-		~Scalar();
-		Scalar(const Scalar &ref);
-		Scalar &operator=(const Scalar &ref);
-		Scalar(std::string input);
-
-		void	convertLiterals();
-		void	displayLiterals( long double x );
-
-	private:
-		std::string	_input;
+		Base();
+		virtual ~Base();
 };
+
+class A : public Base { 
+	public:
+		A();
+		~A(); 
+};
+
+class B : public Base { 
+	public:
+		B();
+		~B();
+};
+
+class C : public Base { 
+	public:
+		C();
+		~C();
+};
+
+Base	*generate(void);
+void	identify(Base* p);
+void	identify(Base& p);
 
 #endif

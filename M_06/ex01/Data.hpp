@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Scalar.hpp                                         :+:    :+:            */
+/*   Data.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/22 12:00:07 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/23 10:11:16 by sde-quai      ########   odam.nl         */
+/*   Created: 2022/08/23 10:13:04 by sde-quai      #+#    #+#                 */
+/*   Updated: 2022/08/23 11:49:02 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALAR_HPP
-# define SCALAR_HPP
+#ifndef DATA_HPP
+# define DATA_HPP
 
 #include <iostream>
 #include <string>
 
-class Scalar {
+class Data {
 	public:
-		Scalar();
-		~Scalar();
-		Scalar(const Scalar &ref);
-		Scalar &operator=(const Scalar &ref);
-		Scalar(std::string input);
-
-		void	convertLiterals();
-		void	displayLiterals( long double x );
+		Data();
+		~Data();
+		Data(const Data &ref);
+		Data &operator=(const Data &ref);
+		
+		void printData();
 
 	private:
-		std::string	_input;
+		uint		_hallo;
+		std::string	_test;
 };
+
+uintptr_t	serialize(Data *ptr);
+Data*		deserialize(uintptr_t raw);
 
 #endif
