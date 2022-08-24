@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/23 13:56:58 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/23 14:16:21 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/24 17:10:16 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int main() {
 		identify(test);
 		identify(*test);	
 		delete test;
-		std::cout << "\\n";
+		std::cout << "\n";
 	}
 }

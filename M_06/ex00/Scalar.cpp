@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/22 13:41:12 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/23 10:11:22 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/24 17:06:12 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,30 +42,28 @@ Scalar	&Scalar::operator=(const Scalar &ref) {
 }
 
 void	Scalar::displayLiterals( long double x ) {
-	if (x < 33 || x >= 127)
+	if ((x < 33 && x >= 0) || x == 127)
 		std::cout << "char: Non displayable" << std::endl;
+	else if (x < 0 || x > 127)
+		std::cout << "char: impossible" << std::endl;
 	else
 		std::cout << "char: " << static_cast<char>(x) << std::endl;
 	if (x < std::numeric_limits<int>::max() && x > std::numeric_limits<int>::min())
 		std::cout << "int: " << static_cast<int>(x) << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-	if (x < std::numeric_limits<float>::max() && x > std::numeric_limits<float>::min())
+	if (x < std::numeric_limits<float>::max() && x > -std::numeric_limits<float>::max())
 		std::cout << "float: " << static_cast<float>(x) << std::endl;
-	else {
-		if (x > 0)
-			std::cout << "float: +inff" << std::endl;
-		else
-			std::cout << "float: -inff" << std::endl;
-	}
-	if (x < std::numeric_limits<double>::max() && x > std::numeric_limits<double>::min())
+	else if (x > 0)
+		std::cout << "float: +inff" << std::endl;
+	else
+		std::cout << "float: -inff" << std::endl;
+	if (x < std::numeric_limits<double>::max() && x > -std::numeric_limits<double>::max())
 		std::cout << "double: " << static_cast<double>(x) << std::endl;
-	else {
-		if (x > 0)
-			std::cout << "double: +inf" << std::endl;
-		else
-			std::cout << "double: -inf" << std::endl;
-	}
+	else if (x > 0)
+		std::cout << "double: +inf" << std::endl;
+	else
+		std::cout << "double: -inf" << std::endl;
 }
 
 void	Scalar::convertLiterals() {
