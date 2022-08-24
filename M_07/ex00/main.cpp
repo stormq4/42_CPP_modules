@@ -6,13 +6,13 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/23 16:50:43 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/23 16:54:07 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/24 14:38:49 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Swap.hpp"
-#include "Min.hpp"
-#include "Max.hpp"
+#include "swap.hpp"
+#include "min.hpp"
+#include "max.hpp"
 #include <iostream>
 #include <string>
 
