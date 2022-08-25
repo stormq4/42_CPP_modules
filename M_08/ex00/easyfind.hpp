@@ -6,27 +6,14 @@
 /*   By: stormdequay <stormdequay@student.codam.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 08:59:35 by stormdequay   #+#    #+#                 */
-/*   Updated: 2022/08/25 09:38:05 by stormdequay   ########   odam.nl         */
+/*   Updated: 2022/08/25 14:18:04 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdexcept>
 #include <iostream>
+#include <algorithm>
 
-template <typename T> int easyfind(T container, int find) {
-	class NotInContainerException : public std::exception {
-		public:
-				virtual const char* what() const throw() {
-					return "Not in container";
-				}
-	};
-
-	(void)find;
-	// for (int i = 0; i < T.size(); i++) {
-	// 	if (array[i] == find) 
-	// 		return array[i];
-	// }
-	(void)container;
-	throw NotInContainerException();
-	return (false);
+template <typename T> typename T::iterator	easyfind(T container, int findMe) {
+	return std::find(container.begin(), container.end(), findMe);
 }
