@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 15:43:25 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/25 16:50:36 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/26 14:58:08 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,20 @@ class Span {
 	public:
 		Span();
 		Span(unsigned int N);
-		// Span(const Span &ref);
-		// Span	&operator=(const Span &ref);
+		Span(const Span &ref);
+		Span	&operator=(const Span &ref);
 		~Span();
 
-		void	shortestSpan();
-		void	longestSpan();
+		int	operator[](int idx);
+		int	size() { return static_cast<int>(_elem.size()); }
+
+		int		shortestSpan();
+		int		longestSpan();
 		void	addNumber(int number);
-		// addManyNumbers
+		void	addManyNumbers(int amount);
 
 	private:
-		const unsigned int		_N;
-		std::vector<int>		_elem;
+		unsigned int		_N;
+		std::vector<int>	_elem;
 	
 };
