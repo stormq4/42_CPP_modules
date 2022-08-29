@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/24 11:54:59 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/29 10:23:38 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/29 11:21:51 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ int	main() {
 		try {
 			Array<int> arr(50);
 			
-			for (int i = 0; i < arr.size(); i++) {
+			for (unsigned int i = 0; i < arr.size(); i++) {
 				arr[i] = i * i;
 			}
-			for (int i = 0; i < arr.size(); i++) {
+			for (unsigned int i = 0; i < arr.size(); i++) {
 				std::cout << i << " --> " << arr[i] << std::endl;
 			}
 			arr[51];
@@ -37,15 +37,15 @@ int	main() {
 		try	{
 			Array<std::string> arr(20);
 			
-			for (int i = 0; i < arr.size(); i++) {
+			for (unsigned int i = 0; i < arr.size(); i++) {
 				arr[i] = "halloooo";
 			}
-			for (int i = 0; i < arr.size(); i++) {
+			for (unsigned int i = 0; i < arr.size(); i++) {
 				std::cout << i << " --> " << arr[i] << std::endl;
 			}
 			arr[-1]; // should fail
 			Array<std::string> copyArray = arr;
-			for (int i = 0; i < copyArray.size(); i++) {
+			for (unsigned int i = 0; i < copyArray.size(); i++) {
 				std::cout << i << " --> " << copyArray[i] << std::endl;
 			}
 		} catch(const std::exception& e) {
@@ -69,7 +69,6 @@ int	main() {
 			Array<int> tmp = numbers;
 			Array<int> test(tmp);
 		}
-
 		for (int i = 0; i < MAX_VAL; i++)
 		{
 			if (mirror[i] != numbers[i])

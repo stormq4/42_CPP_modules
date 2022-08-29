@@ -6,37 +6,43 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/24 11:55:01 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/24 16:01:49 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/29 11:20:29 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ARRAY_HPP
+# define ARRAY_HPP
 
 #include <stdexcept>
 #include <iostream>
 
 template <typename T> class Array {
 	public:
-		Array():_size(0), _elements(nullptr) {}
+		Array():_size(0), _elements(NULL) {}
 
-		Array(unsigned int n): _size(static_cast<int>(n)){
-			_elements = new T[n];
+		Array(unsigned int n): _size(n){
+			_elements = new T[n]();
 		}
 
 		~Array(){
-			delete[] _elements;
+			if (_elements)
+				delete[] _elements;
 		}
 
-		int size() const{ 
+		unsigned int size() const { 
 			return _size;
 		}
 
-		Array(const Array &ref) {
+		Array(const Array &ref): _elements(NULL) {
 			*this = ref;
 		}
 
 		Array &operator=(const Array &ref) {
 			this->_size = ref.size();
-			this->_elements = new T[_size];
-			for (int i = 0; i < _size; i++) {
+			if (_elements)
+				delete [] _elements ;
+			this->_elements = new T[_size]();
+			for (int i = 0; i < static_cast<int>(_size); i++) {
 				this->_elements[i] = ref._elements[i];
 			}
 			return *this;
@@ -50,14 +56,16 @@ template <typename T> class Array {
 		};
 		
 		T &operator[](int i) {
-			if (i >= this->size() || i < 0) {
+			if (i >= static_cast<int>(this->size()) || i < 0) {
 				throw OutOfBoundException();
 			}
 			return _elements[i];
 		}
 
 	private:
-		int				_size;
+		unsigned int	_size;
 		T				*_elements;
-		
+
 };
+
+#endif
