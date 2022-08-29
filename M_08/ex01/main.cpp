@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/26 10:41:17 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/26 11:39:30 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/29 16:43:47 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main() {
 		std::cout << "\n\n------------TEST 2---------------\n";
 		Span test(10000);
 		test.addManyNumbers(100);
-		for (int i = 0; i < (test.size()); i++) {
+		for (unsigned int i = 0; i < test.size(); i++) {
 			std::cout << test[i] << " --> at index " << i << "\n";
 		}
 		std::cout << "shortest span  -> " << test.shortestSpan() << '\n';
@@ -40,7 +40,7 @@ int main() {
 		std::cout << "\n\n------------TEST 4---------------\n";
 		Span test(10000);
 		test.addNumber(100);
-		for (int i = 0; i < (test.size()); i++) {
+		for (unsigned int i = 0; i < (test.size()); i++) {
 			std::cout << test[i] << " --> at index " << i << "\n";
 		}
 		std::cout << "shortest span  -> " << test.shortestSpan() << '\n';
@@ -49,10 +49,10 @@ int main() {
 	{
 		std::cout << "\n\n------------TEST 5---------------\n";
 		Span test(10000);
-		for (int i = 0; i < 100; i++){
+		for (unsigned int i = 0; i < 100; i++){
 			test.addNumber(i + 100);
 		}
-		for (int i = 0; i < test.size(); i++) {
+		for (unsigned int i = 0; i < test.size(); i++) {
 			std::cout << test[i] << " --> at index " << i << "\n";
 		}
 		std::cout << "shortest span  -> " << test.shortestSpan() << '\n';

@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/26 14:59:09 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/26 16:42:29 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/29 16:53:21 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ int main(){
 		mstack.push(0);
 		MutantStack<int>::iterator it = mstack.begin();
 		MutantStack<int>::iterator ite = mstack.end();
-		std::cout << *it << " first in mstack\n";
-		std::cout << *ite << " last in mstack\n";
 
 		++it;
 		--it;
@@ -57,9 +55,7 @@ int main(){
 		mstack.push_back(0);
 		
 		std::list<int>::iterator it = mstack.begin();
-		std::list<int>::iterator ite = mstack.end();
-		std::cout << *it << " first in mstack\n";
-		std::cout << *ite << " last in mstack\n";
+		std::list<int>::iterator ite = mstack.end();;
 		
 		++it;
 		--it;

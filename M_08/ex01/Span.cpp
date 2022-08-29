@@ -6,7 +6,7 @@
 /*   By: sde-quai <sde-quai@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/25 16:42:27 by sde-quai      #+#    #+#                 */
-/*   Updated: 2022/08/26 14:57:54 by sde-quai      ########   odam.nl         */
+/*   Updated: 2022/08/29 16:47:11 by sde-quai      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,14 @@ int	Span::shortestSpan() {
 			if (tmpElem[i] - tmpElem[i + 1] < shortest)
 				shortest = tmpElem[i] - tmpElem[i + 1];
 		}
+		if (shortest < 0)
+			shortest = -shortest;
+		return shortest;
 	}	
 	catch (const std::exception& e) {
 		std::cerr << e.what() << '\n';
 	}
-	if (shortest < 0)
-		shortest = -shortest;
-	return shortest;
+	return 0;
 }
 
 int	Span::longestSpan() {
@@ -82,11 +83,12 @@ int	Span::longestSpan() {
 		min = std::min_element(_elem.begin(), _elem.end());
 		max = std::max_element(_elem.begin(), _elem.end());
 		longest = *max - *min;
+		return longest;
 	}
 	catch (const std::exception& e) {
 		std::cerr << e.what() << '\n';
 	}
-	return longest;
+	return 0;
 }
 
 void	Span::addNumber(int number) {
