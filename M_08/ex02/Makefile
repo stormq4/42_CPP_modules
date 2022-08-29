@@ -6,7 +6,7 @@
 #    By: sde-quai <sde-quai@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/24 10:42:41 by sde-quai      #+#    #+#                  #
-#    Updated: 2022/08/26 16:00:54 by sde-quai      ########   odam.nl          #
+#    Updated: 2022/08/29 11:51:31 by sde-quai      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,13 @@ endif
 GCC :=				clang++
 
 
-SRC := 				main.cpp 
+SRC := 				main.cpp
+
+INC :=				MutantStack.hpp
 
 OBJ_DIR := 			obj
 OBJ :=				$(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
+
 
 all: $(NAME)
 
@@ -37,7 +40,7 @@ fclean : clean
 sanitize: fclean
 	$(MAKE)	sanitize=1
 
-$(OBJ_DIR)/%.o : %.cpp
+$(OBJ_DIR)/%.o : %.cpp $(INC)
 	@mkdir -p $(dir $@)
 	$(GCC) $(FLAGS) -c $< -o $@
 

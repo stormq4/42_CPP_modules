@@ -6,7 +6,7 @@
 #    By: sde-quai <sde-quai@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/08/24 10:42:41 by sde-quai      #+#    #+#                  #
-#    Updated: 2022/08/26 10:41:00 by sde-quai      ########   odam.nl          #
+#    Updated: 2022/08/29 11:51:21 by sde-quai      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,11 @@ GCC :=				clang++
 SRC := 				main.cpp \
 					Span.cpp
 
+INC :=				Span.hpp
+
 OBJ_DIR := 			obj
 OBJ :=				$(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
+
 
 all: $(NAME)
 
@@ -38,7 +41,7 @@ fclean : clean
 sanitize: fclean
 	$(MAKE)	sanitize=1
 
-$(OBJ_DIR)/%.o : %.cpp
+$(OBJ_DIR)/%.o : %.cpp $(INC)
 	@mkdir -p $(dir $@)
 	$(GCC) $(FLAGS) -c $< -o $@
 
