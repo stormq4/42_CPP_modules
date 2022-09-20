@@ -8,4 +8,4 @@ make
 ```
 in your comandline.
 
-During the exercises we could not use containers (except for Module 08) since we have to make them ourselves in a future project. However we have to learn crucial cpp knowlegde on for example inheritence, templates, polymorphism & exceptions while writing clean and reliable code.
+During the exercises we could not use containers (except for Module 08) since we have to make them ourselves in a future project. However we had to learn crucial c++ knowlegde on for example inheritence, templates, polymorphism & exceptions while writing clean and reliable code in cpp98.
