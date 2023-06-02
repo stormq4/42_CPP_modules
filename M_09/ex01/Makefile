@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 
-NAME :=				Vector
+NAME :=				RPN
 
 ifdef sanitize
 FLAGS := 			-std=c++98 -Wall -Wextra -g -fsanitize=address
@@ -24,9 +24,9 @@ GCC :=				clang++
 
 
 SRC := 				main.cpp \
-					BitcoinExchange.cpp
+					RPN.cpp
 
-INC :=				MutantStack.hpp
+INC :=				RPN.hpp
 
 OBJ_DIR := 			obj
 OBJ :=				$(addprefix $(OBJ_DIR)/, $(SRC:%.cpp=%.o))
@@ -48,7 +48,7 @@ $(OBJ_DIR)/%.o : %.cpp $(INC)
 $(NAME) : $(OBJ)
 	$(GCC) $(FLAGS) $^ -o $@
 
-clean : 
+clean :
 	rm -rf $(OBJ_DIR)
 
 
