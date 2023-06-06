@@ -3,6 +3,7 @@
 #include <vector>
 #include <list>
 #include <fstream>
+#include <cmath>
 
 class   PmergeMe{
     public:
@@ -14,10 +15,14 @@ class   PmergeMe{
         void    run(char *fileName);
 		void	parse(char *fileName);
 		void	sort(size_t begin, size_t end);
+		void	bubbleSort(size_t begin, size_t end);
 		void	merge(size_t begin, size_t mid, size_t end);
 
-
     private:
-        std::vector<int>    _v;
-        std::list<int>      _l;
+        std::vector<int>    _v, _tmp;
+		size_t 				_sqrtSize;
 };
+
+//template <typename T> bool comparePM(T a, T b) {
+//    return a < b;
+//}
