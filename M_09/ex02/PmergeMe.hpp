@@ -4,6 +4,8 @@
 #include <list>
 #include <fstream>
 #include <cmath>
+#include <deque>
+#include <ctime>
 
 class   PmergeMe{
     public:
@@ -12,17 +14,18 @@ class   PmergeMe{
         PmergeMe(const PmergeMe &ref);
         PmergeMe &operator=(const PmergeMe &ref);
 
-        void    run(char *fileName);
-		void	parse(char *fileName);
-		void	sort(size_t begin, size_t end);
-		void	bubbleSort(size_t begin, size_t end);
-		void	merge(size_t begin, size_t mid, size_t end);
+        void    run(int argc, char **argv);
+		void	parse(int argc, char **argv);
+
+        void	sortVec(size_t begin, size_t end);
+		void	mergeVec(size_t begin, size_t mid, size_t end);
+
+        void	sortDeq(size_t begin, size_t end);
+        void   	mergeDeq(size_t begin, size_t mid, size_t end);
+
+        void    print(double vecTime, double deqTime);
 
     private:
         std::vector<int>    _v, _tmp;
-        std::list<int>      _print;
+        std::deque<int>     _d, _tmpDeq;
 };
-
-//template <typename T> bool comparePM(T a, T b) {
-//    return a < b;
-//}
