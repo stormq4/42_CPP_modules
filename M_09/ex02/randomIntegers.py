@@ -13,11 +13,12 @@ else:
     print("Invalid arguments. Please provide a valid integer count and a filename.")
     sys.exit(1)
 
-# Generate a list of random integers
-random_integers = [random.randint(1, 100) for _ in range(count)]
+# Generate a list of random integers betweeen range of (x, y)
+random_integers = [random.randint(-1000000, 1000000) for _ in range(count)]
 
 # Write the list to the specified file
 with open(filename, 'w') as file:
     for num in random_integers:
         file.write(str(num) + '\n')
 
+# run -> python randomIntegers.py (count) (filename)

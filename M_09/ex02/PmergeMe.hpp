@@ -20,7 +20,7 @@ class   PmergeMe{
 
     private:
         std::vector<int>    _v, _tmp;
-		size_t 				_sqrtSize;
+        std::list<int>      _print;
 };
 
 //template <typename T> bool comparePM(T a, T b) {
