@@ -17,15 +17,46 @@ class   PmergeMe{
         void    run(int argc, char **argv);
 		void	parse(int argc, char **argv);
 
-        void	sortVec(size_t begin, size_t end);
-		void	mergeVec(size_t begin, size_t mid, size_t end);
+		double	runVec();
+		double	runDeq();
 
-        void	sortDeq(size_t begin, size_t end);
-        void   	mergeDeq(size_t begin, size_t mid, size_t end);
-
+		void	test();
         void    print(double vecTime, double deqTime);
 
     private:
-        std::vector<int>    _v, _tmp;
-        std::deque<int>     _d, _tmpDeq;
+        std::vector<int>    		_v, _tmp, _initVal;
+        std::deque<int>     		_d, _tmpDeq;
+
 };
+
+template <typename T>
+class SortFJ {
+	public:
+		SortFJ() {}
+		~SortFJ() {}
+
+		void    sort(size_t begin, size_t end, T &container, T &tmp) {
+			if (end - begin < 2) return;
+			size_t mid = (begin + end) / 2;
+			sort(begin, mid, container, tmp);
+			sort(mid, end, container, tmp);
+			merge(begin, mid, end, container, tmp);
+			for (size_t i = begin; i < end; i++) container[i] = tmp[i];
+		}
+
+		void	merge(size_t begin, size_t mid, size_t end, T &container, T &tmp) {
+			size_t i = begin;
+			size_t j = mid;
+
+			for (size_t k = begin; k < end; k++) {
+				if (i < mid && (j >= end || container[i] <= container[j])) {
+					tmp[k] = container[i];
+					i++;
+				} else if (j < end) {
+					tmp[k] = container[j];
+					j++;
+				}
+			}
+		}
+};
+

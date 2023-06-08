@@ -12,113 +12,96 @@ PmergeMe::PmergeMe(const PmergeMe &ref) {
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &ref) {
     this->_v = ref._v;
+	this->_d = ref._d;
+	this->_tmp = ref._tmp;
+	this->_tmpDeq = ref._tmpDeq;
+	this->_initVal = ref._initVal;
     return *this;
 }
 
 void    PmergeMe::run(int argc, char **argv) {
     try {
 	    this->parse(argc, argv);
-
-        clock_t startVec = clock();
-        _tmp.resize(this->_v.size());
-        this->sortVec(0, this->_v.size());
-        clock_t endVec = clock();
-
-        clock_t startDeq = clock();
-        _tmpDeq.resize(this->_d.size());
-        this->sortDeq(0, this->_d.size());
-        clock_t endDeq = clock();
-
-        double vecTime = (double)(endVec - startVec) / CLOCKS_PER_SEC * 1000000;
-        double deqTime = (double)(endDeq - startDeq) / CLOCKS_PER_SEC * 1000000;
-        this->print(vecTime, deqTime);
-
+		double vecTime = this->runVec();
+        double deqTime = this->runDeq();
+		this->test();
+		this->print(vecTime, deqTime);
     } catch (std::exception &e) {
-        std::cerr << "Error: " << e.what() << std::endl;
+        std::cerr << "Error " << e.what() << std::endl;
         exit(1);
     }
 }
 
 void	PmergeMe::parse(int argc, char **argv) {
-    std::cout << "Before:\t";
-
     for (int i = 1; i < argc; i++) {
         char *cLine = argv[i];
 	    std::string 	line(cLine);
         if (line.empty()) {
-            std::cerr << "Error: Bad input => " << line << std::endl;
+            std::cerr << "Error" << std::endl;
             exit(1);
         }
-        for (size_t j = 0; j < line.length(); i++) {
-            if (j == 0 && line[j] == '-') continue;
+        for (size_t j = 0; j < line.length(); j++) {
             if (!isdigit(line[j])) {
-                std::cerr << "Error: Bad input => " << line << std::endl;
+                std::cerr << "Error" << std::endl;
                 exit(1);
             }
         }
         int num = std::stoi(line);
-        this->_v.push_back(num);
-        this->_d.push_back(num);
-        std::cout << num << " ";
+        this->_initVal.push_back(num);
     }
 }
 
-void	PmergeMe::sortVec(size_t begin, size_t end) {
-	if (end - begin < 2) {
-		return;
-	}
-    size_t	mid = begin + (end - begin) / 2;
-    this->sortVec(begin, mid);
-	this->sortVec(mid, end);
-	this->mergeVec(begin, mid, end);
-	for (size_t i = begin; i < end; i++) this->_v[i] = this->_tmp[i];
+double PmergeMe::runVec()  {
+	clock_t startVec = clock();
+	this->_v.resize(this->_initVal.size());
+	this->_tmp.resize(this->_initVal.size());
+	for (size_t i = 0; i < this->_initVal.size(); i++) this->_v[i] = this->_initVal[i];
+	SortFJ<std::vector<int> >	sortVec;
+	sortVec.sort(0, this->_v.size(), this->_v, this->_tmp);
+	clock_t endVec = clock();
+	return (double)(endVec - startVec) / CLOCKS_PER_SEC * 1000000;
 }
 
-void PmergeMe::mergeVec(size_t begin, size_t mid, size_t end) {
-	size_t i = begin;
-	size_t j = mid;
+double PmergeMe::runDeq() {
+	clock_t startDeq = clock();
+	this->_d.resize(this->_initVal.size());
+	this->_tmpDeq.resize(this->_initVal.size());
+	for (size_t i = 0; i < this->_initVal.size(); i++) this->_d[i] = this->_initVal[i];
+	SortFJ<std::deque<int> >	sortDeq;
+	sortDeq.sort(0, this->_d.size(), this->_d, this->_tmpDeq);
+	clock_t endDeq = clock();
+	return (double)(endDeq - startDeq) / CLOCKS_PER_SEC * 1000000;
+}
 
-	for (size_t k = begin; k < end; k++) {
-		if (i < mid && (j >= end || _v[i] <= _v[j])) {
-			_tmp[k] = _v[i];
-			i++;
-		} else if (j < end) {
-			_tmp[k] = _v[j];
-			j++;
+void	PmergeMe::test() {
+	if (this->_v.size() != this->_d.size() && this->_v.size() != this->_initVal.size()){
+		std::cerr << "Error" << std::endl;
+		exit(1);
+	}
+	for (size_t i = 0; i < this->_v.size() - 1; i++) {
+		if (this->_v[i] != this->_d[i]) {
+			std::cerr << "Error" << std::endl;
+			exit(1);
+		}
+		if (this->_v[i] > this->_v[i + 1]) {
+			std::cerr << "Error" << std::endl;
+			exit(1);
 		}
 	}
-}
-
-void	PmergeMe::sortDeq(size_t begin, size_t end) {
-    if (end - begin < 2) {
-        return;
-    }
-    size_t	mid = begin + (end - begin) / 2;
-    this->sortVec(begin, mid);
-    this->sortVec(mid, end);
-    this->mergeVec(begin, mid, end);
-    for (size_t i = begin; i < end; i++) this->_d[i] = this->_tmpDeq[i];
-}
-
-void PmergeMe::mergeDeq(size_t begin, size_t mid, size_t end) {
-    size_t i = begin;
-    size_t j = mid;
-
-    for (size_t k = begin; k < end; k++) {
-        if (i < mid && (j >= end || _d[i] <= _d[j])) {
-            _tmpDeq[k] = _d[i];
-            i++;
-        } else if (j < end) {
-            _tmpDeq[k] = _d[j];
-            j++;
-        }
-    }
+	if (this->_v[this->_v.size() - 1] != this->_d[this->_d.size() - 1]) {
+		std::cerr << "Error" << std::endl;
+		exit(1);
+	}
 }
 
 void    PmergeMe::print(double vecTime, double deqTime) {
-    std::cout << "After:\t";
+	std::cout << "Before:\t";
+	for (size_t i = 0; i < this->_initVal.size(); i++) std::cout << this->_initVal[i] << " ";
+	std::cout << std::endl;
+
+	std::cout << "After:\t";
     for (size_t i = 0; i < this->_v.size(); i++) std::cout << this->_v[i] << " ";
     std::cout << std::endl;
-    std::cout << "Time to process a range of" << _v.size() << " elements with std::vector : " << vecTime << " us" << std::endl; // 62.14389 us"
-    std::cout << "Time to process a range of" << _d.size() << " elements with std::deque : " << deqTime << " us" << std::endl; // 62.14389 us"
+    std::cout << "Time to process a range of " << _v.size() << " elements with std::vector : " << vecTime << " us" << std::endl; // 62.14389 us"
+    std::cout << "Time to process a range of " << _d.size() << " elements with std::deque : " << deqTime << " us" << std::endl; // 62.14389 us"
 }
