@@ -11,14 +11,12 @@ class RPN {
 
         void    push(double const & value);
         double	topRPN();
-		void    pop();
         void    add();
         void    sub();
         void    mul();
         void    div();
 
         void    run(std::string const & input);
-
 
     private:
         std::stack<double>   _stack;

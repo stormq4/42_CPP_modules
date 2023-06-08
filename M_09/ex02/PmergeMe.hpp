@@ -29,15 +29,24 @@ class   PmergeMe{
 
 };
 
-
-//while
-//while
-
 template <typename T>
 class SortFJ {
 	public:
 		SortFJ() {}
 		~SortFJ() {}
+
+
+		void    sort(size_t begin, size_t end, T &container, T &tmp) {
+			if (end - begin < 10) {
+				insertionSort(begin, end, container);
+			}
+			if (end - begin < 2) return;
+			size_t mid = (begin + end) / 2;
+			sort(begin, mid, container, tmp);
+			sort(mid, end, container, tmp);
+			merge(begin, mid, end, container, tmp);
+			for (size_t i = begin; i < end; i++) container[i] = tmp[i];
+		}
 
 		void	insertionSort(size_t begin, size_t end, T &container) {
 			int j;
@@ -52,26 +61,10 @@ class SortFJ {
 			}
 		}
 
-		void    sort(size_t begin, size_t end, T &container, T &tmp) {
-			if (end - begin < 10) {
-				insertionSort(begin, end, container);
-			}
-			// //if (end - begin < k)
-			//	call insertionsort
-			if (end - begin < 2) return;
-			size_t mid = (begin + end) / 2;
-			sort(begin, mid, container, tmp);
-			sort(mid, end, container, tmp);
-			merge(begin, mid, end, container, tmp);
-			for (size_t i = begin; i < end; i++) container[i] = tmp[i];
-		}
-
 		void	merge(size_t begin, size_t mid, size_t end, T &container, T &tmp) {
 			size_t i = begin;
 			size_t j = mid;
 
-			//right side = 4 left = 3
-			//
 			for (size_t k = begin; k < end; k++) {
 				if (i < mid && (j >= end || container[i] <= container[j])) {
 					tmp[k] = container[i];

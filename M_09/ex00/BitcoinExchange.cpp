@@ -166,13 +166,3 @@ bool checkFloat(std::string multiply) {
 	}
 	return true;
 }
-
-//
-//std::time_t		BitcoinExchange::dateFromString(const std::string &stringDate) {
-////	std::tm date = {};
-//    string date = strptime(stringDate.c_str(), "%d-%m-%Y", &date);
-//    std::cout << date << std::endl;
-//    if (date.empty())
-//        return false;
-//	return true;
-//}

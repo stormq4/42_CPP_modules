@@ -17,10 +17,6 @@ void    RPN::push(double const & value) {
     this->_stack.push(value);
 }
 
-void    RPN::pop() {
-    this->_stack.pop();
-}
-
 double	RPN::topRPN() {
 	if (this->_stack.empty())
 		throw std::runtime_error("Error");
