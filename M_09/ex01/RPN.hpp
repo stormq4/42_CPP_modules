@@ -10,7 +10,8 @@ class RPN {
         RPN & operator=(RPN const & rhs);
 
         void    push(double const & value);
-        void    pop();
+        double	topRPN();
+		void    pop();
         void    add();
         void    sub();
         void    mul();

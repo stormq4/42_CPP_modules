@@ -75,21 +75,21 @@ double PmergeMe::runDeq() {
 
 void	PmergeMe::test() {
 	if (this->_v.size() != this->_d.size() && this->_v.size() != this->_initVal.size()){
-		std::cerr << "Error" << std::endl;
+		std::cerr << "Error: different size" << std::endl;
 		exit(1);
 	}
 	for (size_t i = 0; i < this->_v.size() - 1; i++) {
 		if (this->_v[i] != this->_d[i]) {
-			std::cerr << "Error" << std::endl;
+			std::cerr << "Error: list not the same" << std::endl;
 			exit(1);
 		}
 		if (this->_v[i] > this->_v[i + 1]) {
-			std::cerr << "Error" << std::endl;
+			std::cerr << "Error: wrong value" << std::endl;
 			exit(1);
 		}
 	}
 	if (this->_v[this->_v.size() - 1] != this->_d[this->_d.size() - 1]) {
-		std::cerr << "Error" << std::endl;
+		std::cerr << "Error: different value" << std::endl;
 		exit(1);
 	}
 }

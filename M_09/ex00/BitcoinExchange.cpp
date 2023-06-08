@@ -59,13 +59,24 @@ void	BitcoinExchange::handleInput(const std::string &input) {
             std::cerr << "Error: Bad input => " << date << std::endl;
             continue;
         }
-
         std::string			multiply;
         getline(ss, multiply);
-        if (multiply.empty()) {
-            std::cerr << "Error: Bad input => " << rline << std::endl;
-            continue;
-        }
+		// if (multiply.empty() || multiply[0] != ' ') {
+		// 	std::cout << "Error: Bad Input => " << rline << std::endl;
+		// 	continue;
+		// }
+		
+		// for (size_t i = 1; i < multiply.size(); i++) {
+		// 	if (multiply[i] != '.' || !isdigit(multiply[i])) {
+		// 		std::cout << "Error: Bad Input => " << rline << std::endl;
+		// 		continue;
+		// 	}
+		// }
+		if (!checkFloat(multiply)) {
+			std::cout << "Error: Bad Input => " << rline << std::endl;
+			continue;
+		}
+
         float				multiplyFloat = std::stof(multiply);
         if (multiplyFloat < 0) {
             std::cerr << "Error: not a positive number." << std::endl;
@@ -130,6 +141,32 @@ bool    BitcoinExchange::checkDate(const std::string &date) {
 void		BitcoinExchange::setDataBaseValue(const std::string &key, const std::string &value) {
 	this->_dataBase[key] = value;
 }
+
+bool checkFloat(std::string multiply) {
+	if (multiply.empty() || multiply[0] != ' ') {
+		return false;
+	}
+	bool dotCheck = true;
+	bool minCheck = true;
+	for (size_t i = 1; i < multiply.size(); i++) {
+		if (multiply[i] == '.') {
+			if (dotCheck == false)
+				return false;
+			else 
+				dotCheck = false;
+		}
+		else if (multiply[i] == '-') {
+			if (minCheck == false)
+				return false;
+			else
+				minCheck = false;
+		}
+		else if (!isdigit(multiply[i]))
+			return false;
+	}
+	return true;
+}
+
 //
 //std::time_t		BitcoinExchange::dateFromString(const std::string &stringDate) {
 ////	std::tm date = {};

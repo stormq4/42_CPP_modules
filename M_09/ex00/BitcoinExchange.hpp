@@ -27,4 +27,4 @@ class BitcoinExchange {
 		std::map<std::string, std::string>				_dataBase;
 };
 
-bool isEarlier(const std::tm& tm1, const std::tm& tm2);
+bool	checkFloat(std::string multiply);

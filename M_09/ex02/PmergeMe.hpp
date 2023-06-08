@@ -29,13 +29,35 @@ class   PmergeMe{
 
 };
 
+
+//while
+//while
+
 template <typename T>
 class SortFJ {
 	public:
 		SortFJ() {}
 		~SortFJ() {}
 
+		void	insertionSort(size_t begin, size_t end, T &container) {
+			int j;
+			for (int i = (int)begin + 1; i < (int)end; i++) {
+				int key = container[i];
+				j = i - 1;
+				while (j >= 0 && container[i] > key) {
+					container[j + 1] = container[j];
+					j--;
+				}
+				container[j + 1] = key;
+			}
+		}
+
 		void    sort(size_t begin, size_t end, T &container, T &tmp) {
+			if (end - begin < 10) {
+				insertionSort(begin, end, container);
+			}
+			// //if (end - begin < k)
+			//	call insertionsort
 			if (end - begin < 2) return;
 			size_t mid = (begin + end) / 2;
 			sort(begin, mid, container, tmp);
@@ -48,6 +70,8 @@ class SortFJ {
 			size_t i = begin;
 			size_t j = mid;
 
+			//right side = 4 left = 3
+			//
 			for (size_t k = begin; k < end; k++) {
 				if (i < mid && (j >= end || container[i] <= container[j])) {
 					tmp[k] = container[i];
