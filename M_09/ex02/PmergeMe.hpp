@@ -34,13 +34,11 @@ class SortFJ {
 	public:
 		SortFJ() {}
 		~SortFJ() {}
-
-
 		void    sort(size_t begin, size_t end, T &container, T &tmp) {
-			if (end - begin < 10) {
+			if (end - begin <= 10) {
 				insertionSort(begin, end, container);
+                return;
 			}
-			if (end - begin < 2) return;
 			size_t mid = (begin + end) / 2;
 			sort(begin, mid, container, tmp);
 			sort(mid, end, container, tmp);
@@ -53,7 +51,7 @@ class SortFJ {
 			for (int i = (int)begin + 1; i < (int)end; i++) {
 				int key = container[i];
 				j = i - 1;
-				while (j >= 0 && container[i] > key) {
+				while (j >= (int)begin && container[j] > key) {
 					container[j + 1] = container[j];
 					j--;
 				}

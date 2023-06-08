@@ -75,7 +75,7 @@ double PmergeMe::runDeq() {
 
 void	PmergeMe::test() {
 	if (this->_v.size() != this->_d.size() && this->_v.size() != this->_initVal.size()){
-		std::cerr << "Error: different size" << std::endl;
+		std::cerr << "Error: list different size" << std::endl;
 		exit(1);
 	}
 	for (size_t i = 0; i < this->_v.size() - 1; i++) {
@@ -84,12 +84,12 @@ void	PmergeMe::test() {
 			exit(1);
 		}
 		if (this->_v[i] > this->_v[i + 1]) {
-			std::cerr << "Error: wrong value" << std::endl;
+			std::cerr << "Error: not sorted correctly" << std::endl;
 			exit(1);
 		}
 	}
 	if (this->_v[this->_v.size() - 1] != this->_d[this->_d.size() - 1]) {
-		std::cerr << "Error: different value" << std::endl;
+		std::cerr << "Error: list not the same" << std::endl;
 		exit(1);
 	}
 }
